@@ -1,0 +1,65 @@
+<DocType html>
+
+    
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        {% load static %}
+        <link rel="stylesheet" href="{% static 'Styles.css' %}">
+    </head>
+    
+    <body>
+        <center>
+            <h1>Inventory Management</h1>
+            <h2><a href="{% url 'file_upload' %}">Add a File</a></h2>
+            <hr\>
+            <table border = '3'>
+                <caption>Product Inventory</caption>
+                <tr>
+                    <th>Product Id</th>
+                    <th>Product Name</th>
+                    <th>Product Description</th>
+                    <th>Product Quantity </th>
+                    <th>Product Price</th>
+                    <th>Username</th>
+                    <th>User Id</th>
+                </tr>
+                {% for result in data%}
+                <tr>
+                    <td>{{result.Product_Id}}</td>
+                    <td>{{result.Product_Name}}</td>
+                    <td>{{result.Product_Description}}</td>
+                    <td>{{result.Product_Quantity}}</td>
+                    <td>{{result.Prodcut_Price}}</td>
+                    <td>{{result.Username_id}}</td>
+                    <td>{{result.User_Id_id}}</td>
+                    <td><a href="edit/{{result.Product_Id}}">edit</a></td>
+                    <td><a href="Delete/{{result.Product_Id}}" onclick="return confirm('Are you sure you want to delete the record of this product')">Delete</a></td>
+                </tr>
+                {% endfor %}
+            </table>
+            <table border = '3'>
+                <caption>User Information</caption>
+                <tr>
+                    <th>Username</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>User Id </th>
+                </tr>
+                {% for result in user_data%}
+                <tr>
+                    <td>{{result.Username}}</td>
+                    <td>{{result.First_Name}}</td>
+                    <td>{{result.Last_Name}}</td>
+                    <td>{{result.User_Id}}</td>
+                    <td><a href="Delete/{{result.User_Id}}" onclick="return confirm('Are you sure you want to delete the record of this user. This will delete all actions done by said user')">Delete</a></td>
+                </tr>
+                {% endfor %}
+            </table>
+        </center>
+    </body>
+    
+    
+    </DocType>
+    
+    

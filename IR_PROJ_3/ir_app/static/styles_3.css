@@ -1,0 +1,133 @@
+body {
+  font-family: 'Open Sans', Arial, sans-serif;
+  background: linear-gradient(120deg, #89f7fe 0%, #66a6ff 100%);
+  color: #333;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  text-align: center;
+  padding: 50px 20px;
+}
+
+.header {
+  margin-bottom: 30px;
+}
+
+.header h1 {
+  color: #ffffff;
+  font-size: 2.5em;
+}
+
+.header p {
+  font-size: 1.2em;
+  margin-bottom: 30px;
+  color: #ffffff;
+}
+
+.search-form {
+  position: relative;
+  margin-bottom: 30px;
+}
+
+.search-form input[type="text"] {
+  width: 100%;
+  max-width: 500px;
+  padding: 10px;
+  font-size: 1em;
+  border-radius: 5px;
+  border: 2px solid #fff;
+  background: transparent;
+  color: #fff;
+}
+
+.search-form .search-btn {
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background-color: #66a6ff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+.search-form .search-btn:hover {
+  background-color: #579bfc;
+}
+
+.file-upload-section {
+  margin-bottom: 30px;
+}
+
+.file-label {
+  background-color: #66a6ff;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#fileInput {
+  opacity: 0;
+  position: absolute;
+  z-index: -1;
+}
+
+#uploadMessage {
+  margin-top: 20px;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: #28a745;
+  color: white;
+  display: none;
+}
+
+#searchResults {
+  margin-top: 20px;
+  color: #fff;
+}
+
+/* Add other styles if necessary */
+body {
+  font-family: Arial, sans-serif;
+  padding: 20px;
+  background: #f4f4f9;
+}
+
+.card {
+  background: white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+  padding: 15px;
+  border-radius: 8px;
+}
+
+.card h5 {
+  color: #333;
+  margin: 0 0 10px 0;
+}
+
+.card p {
+  color: #666;
+  font-size: 14px;
+}
+
+.card ul {
+  margin: 10px 0 0 0;
+  padding: 0;
+}
+
+.card li {
+  list-style-type: none;
+  font-size: 14px;
+  padding: 5px;
+  border-bottom: 1px solid #eee;
+}
+
+.card li:last-child {
+  border-bottom: none;
+}

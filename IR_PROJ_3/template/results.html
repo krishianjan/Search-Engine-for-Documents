@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Results</title>
+    <link rel="stylesheet" href="style_3.css">
+</head>
+<body>
+    <div id="results-container">
+        {% for result in results %}
+        <div class="card">
+            <h5>File: {{ result.file_name }}</h5>
+            <p>Search Term: {{ search_term }}</p>
+            <p>Occurrences:</p>
+            <ul>
+                {% for occurrence in result.occurrences %}
+                <li>{{ occurrence }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+        {% endfor %}
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

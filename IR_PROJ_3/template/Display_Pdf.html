@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Display Doc</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.11.338/pdf.min.js"></script>
+    <style>
+        #pdf-viewer {
+            width: 100%;
+            height: auto; /* Adjust height dynamically based on aspect ratio */
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <h1>Document {{ document }}</h1>
+        <h3>Total Query Occurrences: {{ count }}</h3>
+        <h3>Positions (Indexing from 0): {{ positions }}</h3>
+        <a href="javascript:history.back()">Go Back to the Search Results</a>
+    </div>
+    <!-- Add a blank line of space -->
+    <div>&nbsp;</div>
+    <!-- Display the PDF content for the document -->
+    <div>
+        <canvas id="pdf-viewer"></canvas>
+    </div>
+    <script>
+        // Function to render PDF from base64-encoded content
+        function renderPDF(pdfBase64) {
+            // Decode the base64-encoded PDF content
+            var pdfData = atob(pdfBase64);
+
+            // Convert the binary PDF data to a Uint8Array
+            var pdfBytes = new Uint8Array(pdfData.length);
+            for (var i = 0; i < pdfData.length; i++) {
+                pdfBytes[i] = pdfData.charCodeAt(i);
+            }
+
+            // Using PDF.js library to render PDF
+            pdfjsLib.getDocument({ data: pdfBytes }).promise.then(function(pdf) {
+                // Fetch the first page
+                pdf.getPage(1).then(function(page) {
+                    var canvas = document.getElementById('pdf-viewer');
+                    var context = canvas.getContext('2d');
+
+                    // Set scale according to device pixel ratio
+                    var scale = window.devicePixelRatio || 1;
+                    var viewport = page.getViewport({ scale: scale });
+
+                    // Calculate canvas dimensions based on PDF page aspect ratio
+                    var aspectRatio = viewport.width / viewport.height;
+                    var maxWidth = canvas.parentNode.clientWidth; // Get parent element's width
+                    var maxHeight = maxWidth / aspectRatio;
+
+                    // Adjust canvas dimensions to maintain aspect ratio
+                    canvas.width = maxWidth;
+                    canvas.height = maxHeight;
+
+                    // Render PDF page on canvas
+                    page.render({
+                        canvasContext: context,
+                        viewport: viewport
+                    });
+                });
+            });
+        }
+
+        // Call the function with the base64-encoded PDF content passed from Django
+        var pdfBase64 = "{{ pdf_content }}";
+        renderPDF(pdfBase64);
+    </script>
+</body>
+</html>

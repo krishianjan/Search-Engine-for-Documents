@@ -1,0 +1,50 @@
+/* style.css */
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .wrapper {
+    width: 100%;
+    max-width: 400px;
+    margin: 50px auto;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    box-sizing: border-box;
+  }
+  
+  header {
+    font-size: 24px;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  form {
+    text-align: center;
+  }
+  
+  .file-input {
+    display: none;
+  }
+  
+  i {
+    font-size: 48px;
+    color: #007bff;
+    cursor: pointer;
+    transition: color 0.3s ease;
+  }
+  
+  i:hover {
+    color: #0056b3;
+  }
+  
+  p {
+    margin-top: 10px;
+    color: #333;
+  }
+  

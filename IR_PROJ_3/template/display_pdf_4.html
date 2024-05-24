@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document Viewer</title>
+    <link rel="stylesheet" href="styles_3.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.11.338/pdf.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Upload Documents</h1>
+        <form id="uploadForm" enctype="multipart/form-data">
+            <div class="form-group">
+                <label for="fileInput">Upload Files:</label>
+                <input type="file" id="fileInput" name="files" multiple accept="image/*,application/pdf">
+            </div>
+            <div class="form-group">
+                <label for="urlInput">Or enter URL:</label>
+                <input type="text" id="urlInput" name="url" class="form-control">
+            </div>
+            <button type="submit" class="btn btn-primary">Upload</button>
+        </form>
+        <p id="uploadMessage"></p>
+    </div>
+
+    <div id="pdf-container">
+        <canvas id="pdf-canvas"></canvas>
+    </div>
+
+    <script src="upload.js"></script>
+    <script src="pdf-highlight.js"></script> <!-- Separate JS for PDF handling and highlighting -->
+</body>
+</html>

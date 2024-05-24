@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search and File Upload</title>
+    <!-- Include Google Font -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700&display=swap" rel="stylesheet">
+    <!-- Link to your CSS file -->
+    <link rel="stylesheet" href="{% static 'styles_3.css' %}">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Search and File Upload</h1>
+            <p>Upload your files and perform searches easily.</p>
+        </div>
+        
+        <!-- File Upload Form -->
+        <form id="uploadForm" method="POST" enctype="multipart/form-data" action="{% url 'file_upload' %}">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="fileInput" class="file-label">Choose files to upload:</label>
+                <input type="file" class="form-control-file" id="fileInput" name="files" multiple accept=".pdf,.txt,.doc,.docx,.json">
+            </div>
+            <button type="submit" class="btn btn-primary">Upload File</button>
+        </form>
+
+        <hr>
+
+        <!-- Search Form -->
+        <form id="searchForm" class="search-form" method="GET" action="{% url 'search_results' %}">
+            {% csrf_token %}
+            <div class="form-group">
+                <input type="text" class="form-control" id="searchQuery" name="query" placeholder="Search...">
+                <button type="submit" class="search-btn">Search</button>
+            </div>
+        </form>
+        
+        <div id="uploadMessage" class="message"></div>
+        <div id="numFilesUploaded" class="num-files"></div>
+        <div id="searchResults" class="results"></div>
+    </div>
+    
+    <div>
+        <form action="{% url 'reset_database' %}" method="post">
+            {% csrf_token %}
+            <button type="submit">Reset Database</button>
+            {% if reset_success_message %}
+                <p>{{ reset_success_message }}</p>
+            {% endif %}
+        </form>
+    </div>
+    
+    <!-- JavaScript for File Upload and Search -->
+    <script src="{% static 'js/upload.js' %}"></script>
+    <script src="{% static 'js/search.js' %}"></script>
+</body>
+</html>
