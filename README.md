@@ -1,3 +1,5 @@
+                     🚀   AI-Powered Document Search Engine 🔍
+
 🚀 An intelligent, AI-driven document search engine that simplifies the retrieval of information from large collections of PDF and Word documents. Users can effortlessly upload documents, and the system uses Natural Language Processing (NLP) and linked lists to extract, index, and store data in a connected database.
 
 🔍 When a user enters a query, the engine searches across documents and highlights matching keywords in real-time with dynamic color-coded visuals, offering a seamless and intuitive document review experience.
