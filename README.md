@@ -19,7 +19,7 @@
 📚 NLTK | 🧠 spaCy | 📄 PyPDF2 | 📑 python-docx
 
 🎨 Frontend:
-🌐 HTML | 🎨 CSS | ✨ JavaScript | 🔄 AJAX
+🌐 HTML | 🎨 CSS | ✨ JavaScript & React| 🔄 AJAX
 
 🚢 Deployment & DevOps:
 🐳 Docker | ☁️ AWS / Heroku
